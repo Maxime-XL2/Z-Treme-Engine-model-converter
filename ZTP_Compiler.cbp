@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ZTP_Compiler" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ZTP_Compiler" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ZTP_Compiler" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="gdi32" />
+		</Linker>
+		<Unit filename="SRC/COMMON.H" />
+		<Unit filename="SRC/OpenGL/init.cpp" />
+		<Unit filename="SRC/OpenGL/render.cpp" />
+		<Unit filename="SRC/ZTE/MATH/matrix.cpp" />
+		<Unit filename="SRC/ZTE/MATH/matrix.h" />
+		<Unit filename="SRC/ZTE/RENDER/render.cpp" />
+		<Unit filename="SRC/ZTE/RENDER/zSort.cpp" />
+		<Unit filename="SRC/ZTE/SYSTEM/init.cpp" />
+		<Unit filename="SRC/ZTE/saturnDef.h" />
+		<Unit filename="SRC/ZTP/controls.cpp" />
+		<Unit filename="SRC/ZTP/light.cpp" />
+		<Unit filename="SRC/ZTP/load.cpp" />
+		<Unit filename="SRC/ZTP/textures.cpp" />
+		<Unit filename="SRC/ZTP/tools.cpp" />
+		<Unit filename="SRC/ZTP/vector.cpp" />
+		<Unit filename="SRC/ZTP/writeZTP.cpp" />
+		<Unit filename="SRC/ZTP/writeZTPtext.cpp" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
