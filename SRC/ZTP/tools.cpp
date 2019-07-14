@@ -47,3 +47,26 @@ void calculateBoundingBox(float * boxMin, float * boxMax, vertex_t * vertexArray
 }
 
 
+void writeUint16(ofstream * file, uint16_t data)
+{
+    uint16_t buf = swap_endian_ushort(data);
+    file->write((char*)&buf, sizeof(uint16_t));
+}
+
+void writeSint16(ofstream * file, int16_t data)
+{
+    int16_t buf = swap_endian_sshort(data);
+    file->write((char*)&buf, sizeof(int16_t));
+}
+
+void writeUint32(ofstream * file, uint32_t data)
+{
+    uint32_t buf = swap_endian_uint(data);
+    file->write((char*)&buf, sizeof(uint32_t));
+}
+
+void writeSint32(ofstream * file, int32_t data)
+{
+    int32_t buf = swap_endian_sint(data);
+    file->write((char*)&buf, sizeof(int32_t));
+}

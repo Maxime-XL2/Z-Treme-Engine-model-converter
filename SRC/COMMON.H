@@ -206,6 +206,7 @@ uint32_t        swap_endian_uint(uint32_t value);
 int32_t         swap_endian_sint( int32_t value);
 
 
+
 #include "ZTE/MATH/matrix.h"
 
 /**Functions**/

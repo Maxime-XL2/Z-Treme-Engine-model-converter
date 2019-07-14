@@ -153,14 +153,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     cout << "Setting textures...\n";
     setTextures(model);
-    cout << "Calculating lighting...\n";
-    calcLight(model);
+
     cout << "Preview...\n";
     extern void resetPlayer(player_t *);
     for (int pl=0; pl<4; pl++) {resetPlayer(&PLAYER[pl]);}
             PLAYER[0].ANIMCTRL.fps=4;
-            PLAYER[0].ANIMCTRL.startFrm= MIN(13, model->nbFrames);
-            PLAYER[0].ANIMCTRL.endFrm=MIN(21, model->nbFrames); //The end frame is EXCLUDED. So 1 to 3 is really just 2 frames
+            PLAYER[0].ANIMCTRL.startFrm= 0;
+            PLAYER[0].ANIMCTRL.endFrm= model->nbFrames; //The end frame is EXCLUDED. So 1 to 3 is really just 2 frames
 
     /* program main loop */
     while (!bQuit)
@@ -211,6 +210,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             Sleep (ZT_FRAMERATE);
             glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     }
+
+    /**
+        TODO : Delete the arrays here
+    **/
 
     /* shutdown OpenGL */
     DisableOpenGL(hwnd, hDC, hRC);

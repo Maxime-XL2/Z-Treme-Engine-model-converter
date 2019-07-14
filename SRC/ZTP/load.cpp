@@ -278,6 +278,11 @@ void LoadOBJ(string inFolder, string fileIn, float * scalefactor, animated_model
     }
 
     specialConditions(0, aModel->nbTextures, aModel);
+
+    cout << "Calculating lighting...\n";
+    extern void calcLight(animated_model_t*);
+    calcLight(aModel);
+
     void write_model_binary(ofstream * file, animated_model_t * aModel);
     cout << "NOW CREATING BINARY FILE " << fileOutName << ".ZTP\n";
     string binaryFileName = fileOutName + ".ZTP";  //Z-Treme character
@@ -305,18 +310,25 @@ animated_model_t * loading()
     cout << "New in v.0.2 : OpenGL support and support for new ZTP format!\nSupports a maximum of 256 vertices per model\n";
 
     animated_model_t * newModel = new animated_model_t;
-
+    ZeroMemory(newModel, sizeof(animated_model_t));
     cout << "\n***STEP 1***";
     cout << "\n   Enter how many keyframes your model has\n";
     cout <<"   Example : for 6 keyframes to interpolate your animations, enter 6.\n   0 for no animation.\n\n";
     cout << "ENTER TOTAL KEYFRAMES : ";
     cin >> newModel->nbFrames;
 
+    cout << "\n***STEP 1***";
+    extern int USE_SGL;
+    cout << "\n   Will you be using SGL? '0' for NO, '1' for YES. Default : '1'\n";
+    cout << "USE SGL : ";
+    cin >> USE_SGL;
+    if (USE_SGL != 0) USE_SGL=1;
+
     if (newModel->nbFrames == 0)
     {
         newModel->framerate=0;
        // cout << "\n***STEP 2 SKIPPED***";
-        cout << "\n   You will have the option later to reorder your model to allow matrix animation.\n";
+        //cout << "\n   You will have the option later to reorder your model to allow matrix animation.\n";
     }
     else
     {
@@ -326,6 +338,8 @@ animated_model_t * loading()
         cout << "ENTER INTERPOLATION FACTOR : ";
         cin >> */
         newModel->framerate=0;
+
+        //skipped for now. The idea was to allow 15 FPS playback of say 60 FPS animations
     }
 
     cout << "\n***STEP 3***";
